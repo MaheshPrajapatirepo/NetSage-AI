@@ -1,2 +1,16 @@
-.csv
-*_practice.csv
+# Dataset files
+data/*.csv
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# Virtual environments
+venv/
+.env/
