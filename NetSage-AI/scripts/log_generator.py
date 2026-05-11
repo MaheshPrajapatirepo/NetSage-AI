@@ -82,13 +82,24 @@ for i in range(500):
 
     # Severity assignment
     if risk_score >= 6:
-        severity = "Critical"
+
+        severity = random.choices(
+        ["Critical", "Major"],
+        weights=[0.75, 0.25]
+        )[0]
 
     elif risk_score >= 3:
-        severity = "Major"
 
-    else:
-        severity = "Warning"
+        severity = random.choices(
+        ["Major", "Warning"],
+        weights=[0.7, 0.3]
+        )[0]
+
+    else:  
+        severity = random.choices(
+        ["Warning", "Major"],
+        weights=[0.85, 0.15]
+        )[0]
 
     logs.append({
         "Timestamp": timestamp,

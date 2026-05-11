@@ -3,3 +3,6 @@ numpy
 matplotlib
 scikit-learn
 jupyter
+jobib
+seaborn
+streamlit
