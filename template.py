@@ -3,86 +3,53 @@ import os
 project_name = "Main_Folder"
 
 folders = [
-    "data",
+    "data/raw_logs",
+    "data/processed",
+    "data/datasets",
     "models",
     "outputs",
     "visuals",
+    "notebooks",
     "src"
 ]
 
 files = {
+
+    "app.py": "",
+
+    "main.py": "",
+
+    "README.md": "# NetSage AI\n",
+
+    ".gitignore": """\
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.env
+""",
+
     "requirements.txt": """\
 pandas
 numpy
 matplotlib
-seaborn
 scikit-learn
 streamlit
 joblib
 """,
 
-    "README.md": """\
-# 📡 NetSage AI
+    "src/log_collector.py": "",
 
-An AI-powered Network Operations Center (NOC) monitoring and incident prediction system built with Python, scikit-learn, and Streamlit.
+    "src/log_parser.py": "",
 
-## 🚀 How to Run
+    "src/feature_engineering.py": "",
 
-### Step 1 — Run full pipeline
-```bash
-python main.py
-```
+    "src/train.py": "",
 
-### Step 2 — Launch Streamlit app
-```bash
-streamlit run app.py
-```
-""",
+    "src/evaluate.py": "",
 
-    ".gitignore": """\
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-.Python
+    "src/inference.py": "",
 
-# Virtual Environments
-venv/
-env/
-.env
-.venv
-
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb
-
-# Models
-models/*.pkl
-
-# macOS
-.DS_Store
-
-# VSCode
-.vscode/
-
-# Logs
-*.log
-""",
-
-    "main.py": "# main.py — Run this to execute full pipeline\n",
-    "app.py" : "# app.py  — Run this to launch Streamlit dashboard\n",
-
-    "src/__init__.py"       : "",
-    "src/data_generator.py" : "# src/data_generator.py — Generate synthetic network data\n",
-    "src/data_loader.py"    : "# src/data_loader.py    — Load, encode and prepare features\n",
-    "src/train.py"          : "# src/train.py          — Cross validation + train model\n",
-    "src/evaluate.py"       : "# src/evaluate.py       — Metrics, confusion matrix, feature importance\n",
-    "src/export_model.py"   : "# src/export_model.py   — Save and load .pkl files\n",
-
-    "data/.gitkeep"    : "",
-    "models/.gitkeep"  : "",
-    "outputs/.gitkeep" : "",
-    "visuals/.gitkeep" : "",
+    "data/raw_logs/sample_syslog.log": ""
 }
 
 def create_structure():
