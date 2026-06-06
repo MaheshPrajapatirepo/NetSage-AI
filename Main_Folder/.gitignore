@@ -25,6 +25,7 @@ models/*.pkl
 
 # Logs
 *.log
+*.csv
 
 
 #output
