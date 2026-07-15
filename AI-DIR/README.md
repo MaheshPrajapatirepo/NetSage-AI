@@ -52,7 +52,7 @@ AI-DIR/
 - [x] Risk scoring
 - [x] Alerts + recommendations
 - [x] ML training
-- [ ] Pattern detection
-- [ ] Streamlit dashboard
+- [x] Pattern detection
+- [x] Streamlit dashboard
 - [ ] Docker ingestion
 - [ ] Streamlit Cloud deployment
