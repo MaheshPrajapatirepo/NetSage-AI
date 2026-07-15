@@ -10,10 +10,10 @@ from sklearn.metrics import classification_report, confusion_matrix
 # from the engineered features — useful for pattern detection
 # and failure prediction in phase 2 of the roadmap
 
-MODEL_META_PATH = "data/processed/model_meta.json"
+MODEL_META_PATH = "AI-DIR/data/processed/model_meta.json"
 
 
-def load_features(input_path="data/processed/feature_logs.csv"):
+def load_features(input_path="AI-DIR/data/processed/feature_logs.csv"):
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"feature logs not found: {input_path}")
 
@@ -39,7 +39,7 @@ def prepare_data(df):
     return X, y_encoded, le, feature_cols
 
 
-def train(input_path="data/processed/feature_logs.csv"):
+def train(input_path="AI-DIR/data/processed/feature_logs.csv"):
     print("loading features...")
     df = load_features(input_path)
 

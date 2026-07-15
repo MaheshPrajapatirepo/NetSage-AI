@@ -113,8 +113,8 @@ def get_recommendations(protocol, state):
     return protocol_map.get(state, DEFAULT_RECOMMENDATION)
 
 
-def run_inference(input_path="data/processed/feature_logs.csv",
-                  output_path="data/processed/alerts.csv"):
+def run_inference(input_path="AI-DIR/data/processed/feature_logs.csv",
+                  output_path="AI-DIR/data/processed/alerts.csv"):
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
