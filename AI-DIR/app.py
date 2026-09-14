@@ -13,19 +13,19 @@ from inference import run_inference
 from pattern import run_pattern_detection
 
 BASE_DIR    = os.path.dirname(os.path.abspath(__file__))
-RAW_LOG     = os.path.join(BASE_DIR, "AI-DIR/data/raw/sample_syslog.log")
-PARSED_CSV  = os.path.join(BASE_DIR, "AI-DIR/data/processed/parsed_logs.csv")
-FEATURE_CSV = os.path.join(BASE_DIR, "AI-DIR/data/processed/feature_logs.csv")
-ALERTS_CSV  = os.path.join(BASE_DIR, "AI-DIR/data/processed/alerts.csv")
+RAW_LOG     = os.path.join(BASE_DIR, "data/raw/sample_syslog.log")
+PARSED_CSV  = os.path.join(BASE_DIR, "data/processed/parsed_logs.csv")
+FEATURE_CSV = os.path.join(BASE_DIR, "data/processed/feature_logs.csv")
+ALERTS_CSV  = os.path.join(BASE_DIR, "data/processed/alerts.csv")
 
-# ── page config ──────────────────────────────────────────────
+#page config
 st.set_page_config(
     page_title="NetSage-AI",
     page_icon="🛰️",
     layout="wide"
 )
 
-# ── sidebar ──────────────────────────────────────────────────
+# Sidebar
 st.sidebar.title("🛰️ NetSage-AI")
 st.sidebar.markdown("AI-powered NOC assistant")
 st.sidebar.divider()
@@ -45,7 +45,7 @@ page = st.sidebar.radio(
 )
 
 
-# ── helpers ──────────────────────────────────────────────────
+# Helpers
 def load_csv(path):
     if os.path.exists(path):
         return pd.read_csv(path)
@@ -53,14 +53,14 @@ def load_csv(path):
 
 
 RISK_COLOR = {
-    "CRITICAL": "🔴",
-    "HIGH":     "🟠",
-    "MEDIUM":   "🟡",
-    "LOW":      "🟢",
+    "CRITICAL":"🔴",
+    "HIGH":"🟠",
+    "MEDIUM":"🟡",
+    "LOW":"🟢",
 }
 
 
-# ── overview ─────────────────────────────────────────────────
+# Overview
 if page == "Overview":
     st.title("Network Operations Overview")
 
@@ -98,16 +98,15 @@ if page == "Overview":
         st.line_chart(chart_df)
 
 
-# ── alerts ───────────────────────────────────────────────────
+# Alerts
 elif page == "Alerts":
     st.title("Active Alerts")
 
     alerts_df = load_csv(ALERTS_CSV)
 
     if alerts_df is None:
-        st.info("No alerts yet — click **Run Pipeline** in the sidebar.")
+        st.info("No alerts yet — click **Run** in the sidebar.")
     else:
-        # filter controls
         col1, col2 = st.columns(2)
         with col1:
             risk_filter = st.multiselect(
@@ -148,7 +147,7 @@ elif page == "Alerts":
                     st.markdown(f"- {rec}")
 
 
-# ── patterns ─────────────────────────────────────────────────
+# Patterns
 elif page == "Patterns":
     st.title("Pattern Detection")
 
@@ -187,7 +186,7 @@ elif page == "Patterns":
             st.dataframe(patterns["flapping"], use_container_width=True)
 
 
-# ── raw logs ─────────────────────────────────────────────────
+# Raw logs
 elif page == "Raw Logs":
     st.title("Raw Logs")
 
